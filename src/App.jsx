@@ -75,7 +75,7 @@ export default function App() {
       <BackgroundGlow />
 
       {/* 2. Floating modern Glassmorphic Header Navbar */}
-      <header className="fixed top-4 inset-x-4 max-w-6xl mx-auto h-16 rounded-2xl glass-panel border-slate-200/50 px-6 sm:px-8 flex items-center justify-between z-50 shadow-lg backdrop-blur-xl">
+      <header className="fixed top-4 inset-x-4 max-w-6xl mx-auto h-16 rounded-2xl glass-header border-slate-200/50 px-6 sm:px-8 flex items-center justify-between z-50 shadow-lg backdrop-blur-xl">
         <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}>
           <Code2 className="w-5 h-5 text-neonGreen animate-pulse" />
           <span className="font-extrabold tracking-wider text-sm sm:text-base uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-neonGreen">
@@ -145,7 +145,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -15, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-x-4 z-40 lg:hidden rounded-2xl glass-panel border-slate-200/50 p-6 shadow-xl flex flex-col gap-4 backdrop-blur-xl"
+            className="fixed inset-x-4 z-40 lg:hidden rounded-2xl glass-header border-slate-200/50 p-6 shadow-xl flex flex-col gap-4 backdrop-blur-xl"
             style={{ top: '82px' }}
           >
             {[
