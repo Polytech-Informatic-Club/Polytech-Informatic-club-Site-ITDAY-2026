@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, X, ChevronLeft, ChevronRight, Image as ImageIcon, Camera } from 'lucide-react';
+import { Camera } from 'lucide-react';
 
 const PHOTOS_DATA = [
   { id: 1, src: "/photos_site_selectionnees/IMG_9105.jpg", title: "Accueil & Enregistrement", desc: "Mise en place de la journée et accueil des premiers officiels." },
@@ -18,21 +18,7 @@ const PHOTOS_DATA = [
 ];
 
 export default function Gallery() {
-  const [selectedIdx, setSelectedIdx] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
-
-  const openLightbox = (idx) => setSelectedIdx(idx);
-  const closeLightbox = () => setSelectedIdx(null);
-
-  const showNext = (e) => {
-    e.stopPropagation();
-    setSelectedIdx((prev) => (prev === PHOTOS_DATA.length - 1 ? 0 : prev + 1));
-  };
-
-  const showPrev = (e) => {
-    e.stopPropagation();
-    setSelectedIdx((prev) => (prev === 0 ? PHOTOS_DATA.length - 1 : prev - 1));
-  };
 
   const handleShowToggle = () => {
     if (visibleCount >= PHOTOS_DATA.length) {
@@ -65,7 +51,7 @@ export default function Gallery() {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       >
         <AnimatePresence>
-          {PHOTOS_DATA.slice(0, visibleCount).map((photo, idx) => (
+          {PHOTOS_DATA.slice(0, visibleCount).map((photo) => (
             <motion.div
               key={photo.id}
               layout
@@ -73,8 +59,7 @@ export default function Gallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              onClick={() => openLightbox(idx)}
-              className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden group cursor-pointer shadow-md shadow-indigo-950/[0.015] hover:shadow-xl hover:shadow-indigo-950/[0.03] transition-all duration-500 relative aspect-[4/3] glowing-border"
+              className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden group shadow-md shadow-indigo-950/[0.015] hover:shadow-xl hover:shadow-indigo-950/[0.03] transition-all duration-500 relative aspect-[4/3] glowing-border"
             >
               {/* Photo Image asset */}
               <img 
@@ -86,9 +71,6 @@ export default function Gallery() {
 
               {/* Glassmorphic Hover Info Overlay */}
               <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 z-20 backdrop-blur-[2px]">
-                <span className="p-2.5 rounded-full bg-white/20 border border-white/30 text-white w-10 h-10 flex items-center justify-center mb-3 scale-75 group-hover:scale-100 transition-transform duration-500">
-                  <Eye className="w-5 h-5" />
-                </span>
                 <h3 className="text-white text-base sm:text-lg font-bold translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   {photo.title}
                 </h3>
@@ -117,72 +99,7 @@ export default function Gallery() {
         </button>
       </motion.div>
 
-      {/* Lightbox Modal Fullscreen Dialog */}
-      <AnimatePresence>
-        {selectedIdx !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeLightbox}
-            className="fixed inset-0 bg-slate-950/90 z-[999] flex items-center justify-center p-4 backdrop-blur-md"
-          >
-            {/* Close Button top right */}
-            <button 
-              onClick={closeLightbox}
-              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300 border border-white/15"
-            >
-              <X className="w-5 h-5" />
-            </button>
 
-            {/* Previous Image Navigation Button */}
-            <button 
-              onClick={showPrev}
-              className="absolute left-4 sm:left-8 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300 border border-white/15"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            {/* Central Modal Container */}
-            <motion.div
-              initial={{ scale: 0.95, y: 15 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 15 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl max-h-[80vh] flex flex-col items-center bg-slate-900/60 border border-white/10 p-2 rounded-3xl shadow-2xl backdrop-blur-xl overflow-hidden"
-            >
-              {/* Image asset inside lightbox */}
-              <img 
-                src={PHOTOS_DATA[selectedIdx].src} 
-                alt={PHOTOS_DATA[selectedIdx].title}
-                className="max-h-[60vh] md:max-h-[70vh] rounded-2xl object-contain border border-white/5"
-              />
-
-              {/* Lightbox Footer Texts */}
-              <div className="w-full text-center px-6 py-4 mt-2">
-                <h3 className="text-white text-lg font-bold font-sans">
-                  {PHOTOS_DATA[selectedIdx].title}
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm font-light mt-1 max-w-xl mx-auto">
-                  {PHOTOS_DATA[selectedIdx].desc}
-                </p>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 mt-2.5 block">
-                  Image {selectedIdx + 1} sur {PHOTOS_DATA.length}
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Next Image Navigation Button */}
-            <button 
-              onClick={showNext}
-              className="absolute right-4 sm:right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-300 border border-white/15"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </section>
   );
