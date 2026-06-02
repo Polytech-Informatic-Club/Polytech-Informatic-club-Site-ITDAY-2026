@@ -1,8 +1,15 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Countdown from './Countdown';
 import { Calendar, MapPin, Sparkles, ChevronDown, Camera } from 'lucide-react';
 
 export default function Hero({ onExploreClick }) {
+  const [hasHover, setHasHover] = useState(false);
+
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
+
   // Configured target date for IT DAY 2026 (June 24, 2026 at 09h45)
   const targetEventDate = "2026-06-24T09:45:00";
 
@@ -128,9 +135,9 @@ export default function Hero({ onExploreClick }) {
           >
             {/* Back Polaroid Card (IMG_9173 Clôture - rotated left) */}
             <motion.div 
-              animate={{ rotate: -8, scale: 0.93 }}
-              whileHover={{ rotate: -2, scale: 1, zIndex: 40 }}
-              className="absolute w-[180px] h-[220px] sm:w-[200px] sm:h-[250px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/40 p-2 bg-white -translate-x-12 -translate-y-2 cursor-pointer transition-shadow"
+              animate={{ x: -48, y: -8, rotate: -8, scale: 0.93 }}
+              whileHover={hasHover ? { x: -48, y: -8, rotate: -2, scale: 1, zIndex: 40 } : {}}
+              className="absolute w-[180px] h-[220px] sm:w-[200px] sm:h-[250px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/40 p-2 bg-white transition-shadow"
             >
               <img src="/photos_site_selectionnees/hero_polaroid_derriere.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="lazy" />
               <div className="flex items-center justify-center gap-1 mt-2 text-slate-500">
@@ -141,9 +148,9 @@ export default function Hero({ onExploreClick }) {
             
             {/* Front Polaroid Card (IMG_9242 Élites EPT - rotated right) */}
             <motion.div 
-              animate={{ rotate: 6, scale: 1 }}
-              whileHover={{ rotate: 1, scale: 1.05, zIndex: 40 }}
-              className="absolute w-[190px] h-[230px] sm:w-[210px] sm:h-[260px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/50 p-2 bg-white translate-x-12 translate-y-2 z-20 cursor-pointer transition-shadow"
+              animate={{ x: 48, y: 8, rotate: 6, scale: 1 }}
+              whileHover={hasHover ? { x: 48, y: 8, rotate: 1, scale: 1.05, zIndex: 40 } : {}}
+              className="absolute w-[190px] h-[230px] sm:w-[210px] sm:h-[260px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/50 p-2 bg-white z-20 transition-shadow"
             >
               <img src="/photos_site_selectionnees/hero_polaroid_devant.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="lazy" />
               <div className="flex items-center justify-center gap-1 mt-2 text-slate-700">

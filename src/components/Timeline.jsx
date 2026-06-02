@@ -182,8 +182,8 @@ export default function Timeline() {
 
         {/* Luminous dynamic scale line filling up as we scroll */}
         <motion.div 
-          className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neonGreen via-neonBlue to-neonPurple origin-top -translate-x-[1px]"
-          style={{ scaleY: lineScaleY }}
+          className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neonGreen via-neonBlue to-neonPurple origin-top"
+          style={{ scaleY: lineScaleY, x: -1 }}
         />
 
         {/* Timeline Events List */}

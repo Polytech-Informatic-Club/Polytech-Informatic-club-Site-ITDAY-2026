@@ -17,13 +17,13 @@ const TimeCard = ({ value, label, neonColorClass = "group-hover:border-neonGreen
 
         {/* Dynamic sliding digit transition */}
         <div className="relative h-12 sm:h-16 w-full flex items-center justify-center overflow-hidden">
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence>
             <motion.span
               key={formattedValue}
-              initial={{ y: 25, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -25, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 120, damping: 15 }}
+              exit={{ y: -15, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className="absolute text-3xl sm:text-5xl font-extrabold font-mono tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-slate-900 via-slate-800 to-slate-600"
             >
               {formattedValue}
