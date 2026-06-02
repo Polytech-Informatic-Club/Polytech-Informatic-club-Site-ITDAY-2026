@@ -96,7 +96,7 @@ export default function Hero({ onExploreClick }) {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/40 border border-slate-200/50 shadow-sm">
               <MapPin className="w-4 h-4 text-neonBlue" />
-              <span>SAES / Restaurant GIT EPT</span>
+              <span>Auditorium de l'EPT</span>
             </div>
           </motion.div>
 

@@ -138,7 +138,7 @@ export default function Marraine() {
               <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-6 border border-slate-200/40 bg-slate-100 shadow-sm">
                 <img 
                   src="/photos_site_selectionnees/marraine_pdg_yonas_palomino.jpg" 
-                  alt="Yonas Palomino CEO Systalink" 
+                  alt="Yonas Palomino PDG Systalink" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.98]"
                   loading="lazy"
                 />
@@ -146,7 +146,7 @@ export default function Marraine() {
                 {/* CEO Badge */}
                 <div className="absolute bottom-4 left-4 p-2 bg-slate-900/60 rounded-xl backdrop-blur-md border border-white/10 text-white flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase">
                   <Quote className="w-3.5 h-3.5 text-neonGreen" />
-                  <span>Le Mot du CEO</span>
+                  <span>Le Mot du PDG</span>
                 </div>
               </div>
 
