@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-lightBg text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-neonGreen/10 selection:text-neonGreen;
+  }
+}
+
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 150, 105, 0.25);
+}
+
+/* Glassmorphism helpers for Light Theme */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(5, 150, 105, 0.2);
+  box-shadow: 0 15px 40px -10px rgba(99, 102, 241, 0.06);
+}
+
+/* Glowing Neon/Pastel Borders for Light Theme */
+.glowing-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)) padding-box,
+              linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(139, 92, 246, 0.25)) border-box;
+  border: 1px solid transparent;
+  transition: border-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.glowing-border:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
+              linear-gradient(135deg, #10B981, #8B5CF6, #0EA5E9) border-box;
+  box-shadow: 0 15px 45px -10px rgba(99, 102, 241, 0.08);
+}
+
+/* Subtle Cybernetic Grid Background for Light Theme */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+.cyber-grid-fine {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.005) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.005) 1px, transparent 1px);
+  background-size: 10px 10px;
+  background-position: center center;
+}
