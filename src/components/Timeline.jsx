@@ -110,7 +110,7 @@ const CATEGORIES = [
   { id: 'all', name: 'Tout le Programme' },
   { id: 'accueil', name: 'Cérémonies & Accueil' },
   { id: 'tech', name: 'Conférences & Panels' },
-  { id: 'hackathon', name: 'Hackaton & Prix' }
+  { id: 'hackathon', name: 'Hackathon & Prix' }
 ];
 
 export default function Timeline() {

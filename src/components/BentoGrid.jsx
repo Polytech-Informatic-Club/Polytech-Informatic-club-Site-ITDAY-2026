@@ -233,7 +233,7 @@ export default function BentoGrid() {
                   </span>
                 </div>
                 
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-850 mt-4 leading-snug group-hover:text-neonPurple transition-colors duration-300">
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-800 mt-4 leading-snug group-hover:text-neonPurple transition-colors duration-300">
                   "Le futur du travail et l'intelligence artificielle"
                 </h3>
                 
