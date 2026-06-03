@@ -52,10 +52,10 @@ export default function App() {
       let current = 'home';
       if (scrollPos >= partners) {
         current = 'partners';
-      } else if (scrollPos >= timeline) {
-        current = 'timeline';
       } else if (scrollPos >= gallery) {
         current = 'gallery';
+      } else if (scrollPos >= timeline) {
+        current = 'timeline';
       } else if (scrollPos >= marraine) {
         current = 'marraine';
       } else if (scrollPos >= bento) {
@@ -89,8 +89,8 @@ export default function App() {
             { id: 'home', label: 'Accueil', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
             { id: 'bento', label: 'Thématiques', action: scrollToBento, hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold' },
             { id: 'marraine', label: 'Marraine', action: scrollToMarraine, hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
-            { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold' },
             { id: 'timeline', label: 'Chronogramme', action: scrollToTimeline, hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
+            { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold' },
             { id: 'partners', label: 'Partenaires', action: scrollToPartners, hoverColor: 'hover:text-neonBlue', activeColor: 'text-neonBlue font-bold' },
           ].map((item) => {
             const isActive = activeSection === item.id;
@@ -152,8 +152,8 @@ export default function App() {
               { id: 'home', label: 'Accueil', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), hoverColor: 'hover:text-neonGreen' },
               { id: 'bento', label: 'Thématiques', action: scrollToBento, hoverColor: 'hover:text-neonPurple' },
               { id: 'marraine', label: 'Marraine', action: scrollToMarraine, hoverColor: 'hover:text-neonGreen' },
-              { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple' },
               { id: 'timeline', label: 'Chronogramme', action: scrollToTimeline, hoverColor: 'hover:text-neonGreen' },
+              { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple' },
               { id: 'partners', label: 'Partenaires', action: scrollToPartners, hoverColor: 'hover:text-neonBlue' },
             ].map((item) => {
               const isActive = activeSection === item.id;
@@ -214,20 +214,17 @@ export default function App() {
           <Marraine />
         </div>
 
+        {/* Scroll-driven interactive chronogramme timeline */}
+        <div ref={timelineRef}>
+          <Timeline />
+        </div>
+
         {/* Separator line */}
         <div className="max-w-6xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
         {/* Souvenirs / Gallery of last year (2025) */}
         <div ref={galleryRef}>
           <Gallery />
-        </div>
-
-        {/* Separator line */}
-        <div className="max-w-6xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-
-        {/* Scroll-driven interactive chronogramme timeline */}
-        <div ref={timelineRef}>
-          <Timeline />
         </div>
 
         {/* Separator line */}
@@ -271,11 +268,11 @@ export default function App() {
               <button onClick={scrollToMarraine} className="hover:text-slate-800 transition-colors duration-300 text-left">
                 Marraine Systalink
               </button>
-              <button onClick={scrollToGallery} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Galerie Souvenirs
-              </button>
               <button onClick={scrollToTimeline} className="hover:text-slate-800 transition-colors duration-300 text-left">
                 Chronogramme
+              </button>
+              <button onClick={scrollToGallery} className="hover:text-slate-800 transition-colors duration-300 text-left">
+                Galerie Souvenirs
               </button>
               <button onClick={scrollToPartners} className="hover:text-slate-800 transition-colors duration-300 text-left">
                 Partenaires Officiels
