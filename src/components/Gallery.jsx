@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, MapPin, Sparkles, Pin, Bookmark, Star } from 'lucide-react';
 
@@ -139,6 +139,11 @@ const PHOTOS_DATA = [
 
 export default function Gallery() {
   const [visibleCount, setVisibleCount] = useState(6);
+  const [hasHover, setHasHover] = useState(false);
+
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
 
   const handleShowToggle = () => {
     if (visibleCount >= PHOTOS_DATA.length) {
@@ -211,16 +216,20 @@ export default function Gallery() {
                     </div>
 
                     {/* Image Container with Organic Border Radius and white paper contours */}
-                    <div className={`p-3 bg-white border border-slate-200/50 shadow-xl shadow-slate-900/[0.04] transition-all duration-700 ease-out ${photo.shapeClass} ${photo.rotateClass}`}>
+                    <motion.div 
+                      whileHover={hasHover ? { scale: 1.03, rotate: 0 } : {}}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      className={`p-3 bg-white border border-slate-200/50 shadow-xl shadow-slate-900/[0.04] transition-[border-color,box-shadow,background-color] duration-500 ${photo.shapeClass} ${photo.rotateClass.split(' ')[0]}`}
+                    >
                       <div className={`relative overflow-hidden aspect-[4/3] ${photo.shapeClass} w-[280px] sm:w-[325px]`}>
                         <img 
                           src={photo.src} 
                           alt={photo.title}
-                          className="w-full h-full object-cover filter brightness-[0.98] group-hover:scale-105 transition-transform duration-700 ease-out"
+                          className="w-full h-full object-cover filter brightness-[0.98] md:group-hover:scale-105 transition-transform duration-700 ease-out"
                           loading="lazy"
                         />
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 

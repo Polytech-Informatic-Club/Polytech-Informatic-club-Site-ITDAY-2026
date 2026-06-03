@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, ArrowUpRight, Award, Users } from 'lucide-react';
 
@@ -47,6 +48,10 @@ const PARTNERS = [
 ];
 
 export default function Partners() {
+  const [hasHover, setHasHover] = useState(false);
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
   return (
     <section className="py-24 px-4 max-w-6xl mx-auto relative z-10">
       
@@ -74,7 +79,7 @@ export default function Partners() {
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={hasHover ? { scale: 1.02 } : {}}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="glass-panel border-slate-200/40 rounded-3xl p-6 flex flex-col justify-between hover:border-neonGreen/30 hover:shadow-xl hover:shadow-emerald-500/[0.015] transition-[border-color,box-shadow,background-color] duration-300 relative overflow-hidden group shadow-md shadow-indigo-950/[0.008] bg-white/60"
@@ -88,7 +93,7 @@ export default function Partners() {
                 <img 
                   src={partner.logo} 
                   alt={`${partner.name} Logo`} 
-                  className="w-full h-full object-contain filter group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                  className="w-full h-full object-contain filter md:group-hover:scale-[1.04] transition-transform duration-500 ease-out"
                 />
               </div>
 

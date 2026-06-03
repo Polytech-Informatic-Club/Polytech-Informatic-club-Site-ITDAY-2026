@@ -108,7 +108,7 @@ export default function BentoGrid() {
               <img 
                 src="/photos_site_selectionnees/bento_systalink_illustration.jpg" 
                 alt="Systalink Innovation" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-750 ease-out"
+                className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-750 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-indigo-950/[0.005] to-transparent pointer-events-none" />
             </div>
@@ -128,7 +128,7 @@ export default function BentoGrid() {
               <img 
                 src="/photos_site_selectionnees/bento_alternance_illustration.jpg" 
                 alt="Formation GIT Alternance" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/10" />
             </div>
@@ -171,7 +171,7 @@ export default function BentoGrid() {
               <img 
                 src="/photos_site_selectionnees/bento_recherche_illustration.jpg" 
                 alt="Projets de recherche GIT" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/10" />
             </div>
@@ -215,7 +215,7 @@ export default function BentoGrid() {
               <img 
                 src="/photos_site_selectionnees/bento_panel_illustration.jpg" 
                 alt="Panel Débat IA Souveraineté" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-750 ease-out"
+                className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-750 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-indigo-950/[0.005] to-transparent pointer-events-none" />
             </div>

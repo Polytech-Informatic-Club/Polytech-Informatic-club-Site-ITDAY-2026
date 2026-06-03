@@ -240,7 +240,7 @@ export default function Timeline() {
                             <img 
                               src={event.image} 
                               alt={event.title} 
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                              className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out"
                               loading="lazy"
                             />
                             {/* Visual shine mask */}

@@ -139,7 +139,7 @@ export default function Marraine() {
                 <img 
                   src="/photos_site_selectionnees/marraine_pdg_yonas_palomino.jpg" 
                   alt="Yonas Palomino PDG Systalink" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.98]"
+                  className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.98]"
                   loading="lazy"
                 />
                 
