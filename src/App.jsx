@@ -43,26 +43,26 @@ export default function App() {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 250;
       
-      const home = 0;
       const bento = bentoRef.current?.offsetTop || 0;
       const marraine = marraineRef.current?.offsetTop || 0;
       const gallery = galleryRef.current?.offsetTop || 0;
       const timeline = timelineRef.current?.offsetTop || 0;
       const partners = partnersRef.current?.offsetTop || 0;
 
+      let current = 'home';
       if (scrollPos >= partners) {
-        setActiveSection('partners');
+        current = 'partners';
       } else if (scrollPos >= timeline) {
-        setActiveSection('timeline');
+        current = 'timeline';
       } else if (scrollPos >= gallery) {
-        setActiveSection('gallery');
+        current = 'gallery';
       } else if (scrollPos >= marraine) {
-        setActiveSection('marraine');
+        current = 'marraine';
       } else if (scrollPos >= bento) {
-        setActiveSection('bento');
-      } else {
-        setActiveSection('home');
+        current = 'bento';
       }
+
+      setActiveSection((prev) => (prev !== current ? current : prev));
     };
 
     window.addEventListener('scroll', handleScroll);

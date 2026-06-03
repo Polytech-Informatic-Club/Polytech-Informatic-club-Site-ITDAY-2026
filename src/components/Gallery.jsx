@@ -46,20 +46,18 @@ export default function Gallery() {
       </div>
 
       {/* Responsive Gallery Grid */}
-      <motion.div 
-        layout="position"
+      <div 
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       >
         <AnimatePresence>
           {PHOTOS_DATA.slice(0, visibleCount).map((photo) => (
             <motion.div
               key={photo.id}
-              layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden group shadow-md shadow-indigo-950/[0.015] hover:shadow-xl hover:shadow-indigo-950/[0.03] transition-all duration-500 relative aspect-[4/3] glowing-border"
+              className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden group shadow-md shadow-indigo-950/[0.015] hover:shadow-xl hover:shadow-indigo-950/[0.03] transition-[border-color,box-shadow,background-color] duration-500 relative aspect-[4/3] glowing-border"
             >
               {/* Photo Image asset */}
               <img 
@@ -69,26 +67,15 @@ export default function Gallery() {
                 loading="lazy"
               />
 
-              {/* Glassmorphic Hover Info Overlay */}
-              <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 z-20 backdrop-blur-[2px]">
-                <h3 className="text-white text-base sm:text-lg font-bold translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  {photo.title}
-                </h3>
-                <p className="text-white/80 text-xs font-light mt-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                  {photo.desc}
-                </p>
-              </div>
-
               {/* Edge shine lines */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
       {/* Gallery Expand Button */}
-      <motion.div 
-        layout="position"
+      <div 
         className="text-center mt-12"
       >
         <button
@@ -97,7 +84,7 @@ export default function Gallery() {
         >
           {visibleCount >= PHOTOS_DATA.length ? "Voir moins de photos" : "Afficher plus de photos"}
         </button>
-      </motion.div>
+      </div>
 
 
 

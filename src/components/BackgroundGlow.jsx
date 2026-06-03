@@ -8,8 +8,8 @@ export default function BackgroundGlow() {
       <div className="absolute inset-0 bg-[#F8FAFC] z-0" />
 
       {/* Cyber Grid Lines (subtle slate lines) */}
-      <div className="absolute inset-0 cyber-grid opacity-50 z-0" />
-      <div className="absolute inset-0 cyber-grid-fine opacity-30 z-0" />
+      <div className="absolute inset-0 cyber-grid opacity-0 sm:opacity-50 z-0" />
+      <div className="absolute inset-0 cyber-grid-fine opacity-0 sm:opacity-30 z-0" />
 
       {/* Floating Organic Blob 1 - Static Soft Emerald */}
       <div className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-[0.04] bg-emerald-300 top-[-10%] left-[-10%]" />

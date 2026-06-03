@@ -74,9 +74,10 @@ export default function Partners() {
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="glass-panel border-slate-200/40 rounded-3xl p-6 flex flex-col justify-between hover:border-neonGreen/30 hover:shadow-xl hover:shadow-emerald-500/[0.015] hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group shadow-md shadow-indigo-950/[0.008] bg-white/60"
+            className="glass-panel border-slate-200/40 rounded-3xl p-6 flex flex-col justify-between hover:border-neonGreen/30 hover:shadow-xl hover:shadow-emerald-500/[0.015] transition-[border-color,box-shadow,background-color] duration-300 relative overflow-hidden group shadow-md shadow-indigo-950/[0.008] bg-white/60"
           >
             {/* Top decorative gradient border hover accent */}
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-neonGreen via-neonBlue to-neonPurple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

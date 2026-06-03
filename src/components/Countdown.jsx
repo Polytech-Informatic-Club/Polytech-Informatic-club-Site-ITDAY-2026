@@ -24,7 +24,7 @@ const TimeCard = ({ value, label, neonColorClass = "group-hover:border-neonGreen
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -15, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="absolute text-3xl sm:text-5xl font-extrabold font-mono tracking-wider bg-clip-text text-transparent bg-gradient-to-b from-slate-900 via-slate-800 to-slate-600"
+              className="absolute text-3xl sm:text-5xl font-extrabold font-mono tracking-wider text-slate-800"
             >
               {formattedValue}
             </motion.span>

@@ -182,7 +182,7 @@ export default function Timeline() {
 
         {/* Luminous dynamic scale line filling up as we scroll */}
         <motion.div 
-          className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neonGreen via-neonBlue to-neonPurple origin-top"
+          className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-neonGreen via-neonBlue to-neonPurple origin-top hidden md:block"
           style={{ scaleY: lineScaleY, x: -1 }}
         />
 
@@ -197,15 +197,13 @@ export default function Timeline() {
               return (
                 <motion.div
                   key={event.id}
-                  layout
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ 
                     type: "spring",
                     stiffness: 100, 
-                    damping: 20, 
-                    layout: { duration: 0.5, type: "spring" } 
+                    damping: 20
                   }}
                   className={`flex flex-col sm:flex-row items-start sm:items-center relative w-full ${
                     isEven ? 'sm:flex-row-reverse' : ''
@@ -220,20 +218,18 @@ export default function Timeline() {
                   <div className={`w-full sm:w-1/2 pl-12 sm:pl-0 sm:px-12 flex ${
                     isEven ? 'sm:justify-start' : 'sm:justify-end'
                   } mb-2 sm:mb-0`}>
-                    <motion.div 
-                      layout="position"
+                    <div 
                       className="flex items-center gap-2 text-neonBlue text-sm sm:text-base font-bold bg-sky-50 border border-sky-100 px-3 py-1 rounded-lg shadow-sm"
                     >
                       <Clock className="w-3.5 h-3.5" />
                       <span>{event.time}</span>
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Right Column / Actual Card Content */}
                   <div className="w-full sm:w-1/2 pl-12 sm:pl-0 sm:px-12">
-                    <motion.div
-                      layout="position"
-                      className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden hover:border-neonGreen/30 hover:shadow-xl hover:shadow-indigo-950/[0.02] transition-all duration-300 relative group shadow-md shadow-indigo-950/[0.015]"
+                    <div
+                      className="glass-panel border-slate-200/40 rounded-3xl overflow-hidden hover:border-neonGreen/30 hover:shadow-xl hover:shadow-indigo-950/[0.02] transition-[border-color,box-shadow,background-color] duration-300 relative group shadow-md shadow-indigo-950/[0.015]"
                     >
                       {/* Split card structure with visual and text elements */}
                       <div className="flex flex-col md:flex-row">
@@ -297,7 +293,7 @@ export default function Timeline() {
 
                       </div>
 
-                    </motion.div>
+                    </div>
                   </div>
 
                 </motion.div>
