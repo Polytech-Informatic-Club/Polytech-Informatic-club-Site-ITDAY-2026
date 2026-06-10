@@ -138,7 +138,7 @@ export default function Marraine() {
               <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-6 border border-slate-200/40 bg-slate-100 shadow-sm">
                 <img 
                   src="/photos_site_selectionnees/marraine_pdg_yonas_palomino.jpg" 
-                  alt="Yonas Palomino PDG Systalink" 
+                  alt="Yonas PALOMINO PDG Systalink" 
                   className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.98]"
                   loading="lazy"
                 />
@@ -153,7 +153,7 @@ export default function Marraine() {
               {/* Name Details */}
               <div>
                 <h3 className="text-xl font-extrabold text-slate-800 tracking-tight">
-                  Yonas Palomino
+                  Yonas PALOMINO
                 </h3>
                 <span className="text-xs font-bold text-neonBlue uppercase tracking-widest block mt-0.5">
                   Président Directeur Général, Systalink

@@ -21,9 +21,9 @@ const EVENTS_DATA = [
     image: "/photos_site_selectionnees/c2.jpg",
     details: "Série d'allocutions protocolaires de la Direction de l'école, du Chef de département GIT, et du bureau du Polytech Informatique Club.",
     speakers: [
-      { name: "Pr Mamadou Wade", role: "Directeur de l'École Polytechnique de Thiès (EPT)" },
-      { name: "Pr Mamadou Diallo Diouf", role: "Chef du département Génie Informatique & Télécommunications (GIT)" },
-      { name: "Murtada Kamara", role: "Président du Bureau Des Élèves (BDE)" },
+      { name: "Pr Mamadou WADE", role: "Directeur de l'École Polytechnique de Thiès (EPT)" },
+      { name: "Pr Mamadou Diallo DIOUF", role: "Chef du département Génie Informatique & Télécommunications (GIT)" },
+      { name: "Murtada KAMARA", role: "Président du Bureau Des Élèves (BDE)" },
       { name: "Algassimou BAH", role: "Président du Polytech Informatique Club (PIC)" }
     ]
   },
@@ -36,7 +36,7 @@ const EVENTS_DATA = [
     image: "/photos_site_selectionnees/c3.jpg",
     details: "Présentation détaillée du modèle de formation en alternance pionnier du département GIT, de ses apports pédagogiques et de son impact sur l'employabilité.",
     speakers: [
-      { name: "M. Guisse", role: "Directeur des études, EPT" }
+      { name: "M. GUISSE", role: "Directeur des études, EPT" }
     ]
   },
   {
@@ -48,7 +48,7 @@ const EVENTS_DATA = [
     image: "/photos_site_selectionnees/c4.webp",
     details: "Présentation de l'entreprise marraine SYSTALINK, de son infrastructure de cloud souverain, de son expertise en cybersécurité et des opportunités de collaboration avec le GIT.",
     speakers: [
-      { name: "Yonas Palomino", role: "Président Directeur Général, Systalink" }
+      { name: "Yonas PALOMINO", role: "Président Directeur Général, Systalink" }
     ]
   },
   {
@@ -100,10 +100,10 @@ const EVENTS_DATA = [
         photo: "/photos_site_selectionnees/panelist_ndiaye_dia.jpeg"
       },
       { 
-        name: "M. Mohamed TALL", 
+        name: "M. Mouhamet TALL", 
         role: "Ingénieur IA chez Systalink",
         initials: "MT",
-        photo: "/photos_site_selectionnees/panelist_mohamed_tall.jpg"
+        photo: "/photos_site_selectionnees/panelist_mouhamet_tall.jpg"
       }
     ],
     moderator: {
