@@ -91,13 +91,13 @@ const EVENTS_DATA = [
         name: "Pr Abdou Aziz CISS", 
         role: "Enseignant-chercheur EPT",
         initials: "AC",
-        photo: "/photos_site_selectionnees/panelist_abdou_aziz_ciss.jpg"
+        photo: "/photos_site_selectionnees/panelist_abdou_aziz_ciss.png"
       },
       { 
         name: "Pr Ndiaye DIA", 
         role: "Head of Data - Analytics & AI ｜ Dakar 2026",
         initials: "ND",
-        photo: "/photos_site_selectionnees/panelist_ndiaye_dia.jpg"
+        photo: "/photos_site_selectionnees/panelist_ndiaye_dia.jpeg"
       },
       { 
         name: "M. Mohamed TALL", 
@@ -110,7 +110,7 @@ const EVENTS_DATA = [
       name: "Mme Fama SARR",
       role: "Modératrice",
       initials: "FS",
-      photo: "/photos_site_selectionnees/panelist_fama_sarr.jpg"
+      photo: "/photos_site_selectionnees/panelist_fama_sarr.jpeg"
     }
   },
   {
