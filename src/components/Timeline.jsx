@@ -88,7 +88,7 @@ const EVENTS_DATA = [
         photo: "/photos_site_selectionnees/panelist_oumar_niang.jpg"
       },
       { 
-        name: "Pr Abdou Aziz CISS", 
+        name: "Pr Abdoul Aziz CISS", 
         role: "Enseignant-chercheur EPT",
         initials: "AC",
         photo: "/photos_site_selectionnees/panelist_abdou_aziz_ciss.png"
