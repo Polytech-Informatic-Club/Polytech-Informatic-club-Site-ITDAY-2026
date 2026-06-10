@@ -80,10 +80,10 @@ export default function Hero({ onExploreClick }) {
             className="mb-8"
           >
             <p className="text-lg sm:text-2xl font-bold tracking-wide text-slate-700 uppercase">
-              Le futur du travail et l'intelligence artificielle :
+              Propulser le futur du travail par l'IA :
             </p>
             <p className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neonGreen to-neonBlue mt-1">
-              compétences, productivité et nouveaux modèles de collaboration
+              Compétences de demain et défis d'une transformation technologique de confiance
             </p>
             <p className="text-slate-500 text-sm sm:text-base mt-4 max-w-xl font-light leading-relaxed">
               Explorez l'évolution des compétences de l'ingénieur, l'impact sur l'organisation du travail et les opportunités d'innovation souveraine lors de cette journée d'échange exceptionnelle portée par les élites de l'EPT.

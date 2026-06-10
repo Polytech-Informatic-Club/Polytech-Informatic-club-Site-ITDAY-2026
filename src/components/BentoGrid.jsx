@@ -234,7 +234,7 @@ export default function BentoGrid() {
                 </div>
                 
                 <h3 className="text-base sm:text-lg font-extrabold text-slate-800 mt-4 leading-snug group-hover:text-neonPurple transition-colors duration-300">
-                  "Le futur du travail et l'intelligence artificielle"
+                  "Propulser le futur du travail par l'IA : Compétences de demain et défis d'une transformation technologique de confiance"
                 </h3>
                 
                 {/* 3 Angles list */}

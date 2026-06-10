@@ -79,7 +79,7 @@ const EVENTS_DATA = [
     category: "tech",
     icon: Users,
     image: "/photos_site_selectionnees/c7.jpg",
-    details: "Discussion ouverte autour du thème : 'Le futur du travail et l'intelligence artificielle : compétences, productivité et nouveaux modèles de collaboration'.",
+    details: "Discussion ouverte autour du thème : 'Propulser le futur du travail par l'IA : Compétences de demain et défis d'une transformation technologique de confiance.'",
     speakers: [
       { 
         name: "Pr Oumar NIANG", 
