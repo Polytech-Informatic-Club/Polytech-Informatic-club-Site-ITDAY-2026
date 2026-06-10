@@ -103,7 +103,7 @@ const EVENTS_DATA = [
         name: "M. Mouhamet TALL", 
         role: "Ingénieur IA chez Systalink",
         initials: "MT",
-        photo: "/photos_site_selectionnees/panelist_mouhamet_tall.jpg"
+        photo: "/photos_site_selectionnees/panelist_mohamet_tall.jpg"
       }
     ],
     moderator: {
