@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Cpu, BookOpen, UserCheck, Server, Terminal } from 'lucide-react';
+import { Cpu, BookOpen, UserCheck, Terminal } from 'lucide-react';
 
 const BentoCard = ({ children, className = "", delay = 0 }) => {
   return (
@@ -257,7 +257,7 @@ export default function BentoGrid() {
                   Intervenants pressentis
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {["Professeurs du GIT", "Yonas Palomino", "Ambassadeur GalsenAI"].map((pName, idx) => (
+                  {["Mme Fama SARR", "Pr Oumar NIANG", "Pr Abdou Aziz CISS", "Pr Ndiaye DIA", "M. Mohamed TALL"].map((pName, idx) => (
                     <span 
                       key={idx} 
                       className="text-[9px] bg-slate-50 border border-slate-200/60 px-2 py-0.5 rounded-md text-slate-600 font-bold"

@@ -81,11 +81,37 @@ const EVENTS_DATA = [
     image: "/photos_site_selectionnees/c7.jpg",
     details: "Discussion ouverte autour du thème : 'Le futur du travail et l'intelligence artificielle : compétences, productivité et nouveaux modèles de collaboration'.",
     speakers: [
-      { name: "Professeurs du GIT", role: "Enseignants-chercheurs, EPT" },
-      { name: "Yonas Palomino", role: "PDG de SYSTALINK" },
-      { name: "Ambassadeur GalsenAI", role: "Expert en Intelligence Artificielle" }
+      { 
+        name: "Pr Oumar NIANG", 
+        role: "Enseignant-chercheur, EPT",
+        initials: "ON",
+        photo: "/photos_site_selectionnees/panelist_oumar_niang.jpg"
+      },
+      { 
+        name: "Pr Abdou Aziz CISS", 
+        role: "Enseignant-chercheur EPT",
+        initials: "AC",
+        photo: "/photos_site_selectionnees/panelist_abdou_aziz_ciss.jpg"
+      },
+      { 
+        name: "Pr Ndiaye DIA", 
+        role: "Head of Data - Analytics & AI ｜ Dakar 2026",
+        initials: "ND",
+        photo: "/photos_site_selectionnees/panelist_ndiaye_dia.jpg"
+      },
+      { 
+        name: "M. Mohamed TALL", 
+        role: "Ingénieur IA chez Systalink",
+        initials: "MT",
+        photo: "/photos_site_selectionnees/panelist_mohamed_tall.jpg"
+      }
     ],
-    moderator: "Modérateur Alumni du GIT"
+    moderator: {
+      name: "Mme Fama SARR",
+      role: "Modératrice",
+      initials: "FS",
+      photo: "/photos_site_selectionnees/panelist_fama_sarr.jpg"
+    }
   },
   {
     id: 8,
@@ -266,14 +292,37 @@ export default function Timeline() {
                           {/* Display speakers list if present */}
                           {event.speakers && (
                             <div className="border-t border-slate-100 pt-3 mt-1 space-y-2">
-                              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 block">
+                              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 block mb-2">
                                 Intervenants
                               </span>
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {event.speakers.map((speaker, sIdx) => (
-                                  <div key={sIdx} className="flex flex-col">
-                                    <span className="text-xs font-bold text-slate-700">{speaker.name}</span>
-                                    <span className="text-[10px] text-slate-400 font-light">{speaker.role}</span>
+                                  <div key={sIdx} className="flex items-center gap-3">
+                                    {speaker.initials || speaker.photo ? (
+                                      <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-tr from-slate-100 to-indigo-50 border border-slate-200/60 flex items-center justify-center shadow-inner">
+                                        {speaker.initials && (
+                                          <span className="text-[10px] font-extrabold text-slate-500 tracking-wider">
+                                            {speaker.initials}
+                                          </span>
+                                        )}
+                                        {speaker.photo && (
+                                          <img
+                                            src={speaker.photo}
+                                            alt={speaker.name}
+                                            className="absolute inset-0 w-full h-full object-cover"
+                                            onError={(e) => {
+                                              e.target.style.display = 'none';
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    ) : (
+                                      <div className="w-1.5 h-1.5 rounded-full bg-neonGreen flex-shrink-0" />
+                                    )}
+                                    <div className="flex flex-col min-w-0">
+                                      <span className="text-xs font-bold text-slate-700 truncate leading-snug">{speaker.name}</span>
+                                      <span className="text-[10px] text-slate-400 font-light truncate leading-none mt-0.5">{speaker.role}</span>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -282,11 +331,37 @@ export default function Timeline() {
 
                           {/* Displays panelist / moderator specific sections */}
                           {event.moderator && (
-                            <div className="border-t border-slate-100 pt-3 mt-2">
-                              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 block">
+                            <div className="border-t border-slate-100 pt-3 mt-3">
+                              <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 block mb-2">
                                 Modérateur
                               </span>
-                              <span className="text-xs font-bold text-neonBlue">{event.moderator}</span>
+                              {typeof event.moderator === 'object' ? (
+                                <div className="flex items-center gap-3">
+                                  <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-tr from-slate-100 to-indigo-50 border border-slate-200/60 flex items-center justify-center shadow-inner">
+                                    {event.moderator.initials && (
+                                      <span className="text-[10px] font-extrabold text-slate-500 tracking-wider">
+                                        {event.moderator.initials}
+                                      </span>
+                                    )}
+                                    {event.moderator.photo && (
+                                      <img
+                                        src={event.moderator.photo}
+                                        alt={event.moderator.name}
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                        onError={(e) => {
+                                          e.target.style.display = 'none';
+                                        }}
+                                      />
+                                    )}
+                                  </div>
+                                  <div className="flex flex-col min-w-0">
+                                    <span className="text-xs font-bold text-neonBlue truncate leading-snug">{event.moderator.name}</span>
+                                    <span className="text-[10px] text-slate-400 font-light truncate leading-none mt-0.5">{event.moderator.role}</span>
+                                  </div>
+                                </div>
+                              ) : (
+                                <span className="text-xs font-bold text-neonBlue">{event.moderator}</span>
+                              )}
                             </div>
                           )}
                         </div>

@@ -12,10 +12,10 @@ export default function BackgroundGlow() {
       <div className="absolute inset-0 cyber-grid-fine opacity-0 sm:opacity-30 z-0" />
 
       {/* Floating Organic Blob 1 - Static Soft Emerald */}
-      <div className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-[0.04] bg-emerald-300 top-[-10%] left-[-10%]" />
+      <div className="absolute w-[600px] h-[600px] rounded-full blur-[140px] opacity-[0.04] bg-emerald-300 top-[-10%] left-[-10%] hidden sm:block transform-gpu" />
 
       {/* Floating Organic Blob 2 - Static Soft Tech Violet */}
-      <div className="absolute w-[700px] h-[700px] rounded-full blur-[160px] opacity-[0.04] bg-violet-200 bottom-[-15%] right-[-10%]" />
+      <div className="absolute w-[700px] h-[700px] rounded-full blur-[160px] opacity-[0.04] bg-violet-200 bottom-[-15%] right-[-10%] hidden sm:block transform-gpu" />
 
       {/* Subtle Radial Vignette overlay to anchor the page */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(248,250,252,0.6)_95%)] z-0" />

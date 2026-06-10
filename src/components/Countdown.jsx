@@ -44,7 +44,7 @@ const TimeCard = ({ value, label, neonColorClass = "group-hover:border-neonGreen
   );
 };
 
-export default function Countdown({ targetDate = "2027-04-12T08:30:00" }) {
+export default function Countdown({ targetDate = "2026-06-24T09:00:00" }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,

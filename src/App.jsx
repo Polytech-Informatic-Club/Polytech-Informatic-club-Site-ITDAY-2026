@@ -6,8 +6,20 @@ import Marraine from './components/Marraine';
 import Gallery from './components/Gallery';
 import Timeline from './components/Timeline';
 import Partners from './components/Partners';
-import { Mail, Shield, Send, Code2, Globe, Menu, X } from 'lucide-react';
+import { Mail, Shield, Code2, Globe, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+
+const NAV_ITEMS = [
+  { id: 'home', label: 'Accueil', hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold', accent: 'green' },
+  { id: 'bento', label: 'Thématiques', hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold', accent: 'purple' },
+  { id: 'marraine', label: 'Marraine', hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold', accent: 'green' },
+  { id: 'timeline', label: 'Chronogramme', hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold', accent: 'green' },
+  { id: 'gallery', label: 'Souvenirs', hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold', accent: 'purple' },
+  { id: 'partners', label: 'Partenaires', hoverColor: 'hover:text-neonBlue', activeColor: 'text-neonBlue font-bold', accent: 'blue' },
+];
+
+const accentBg = (accent) =>
+  accent === 'purple' ? 'bg-neonPurple' : accent === 'blue' ? 'bg-neonBlue' : 'bg-neonGreen';
 
 export default function App() {
   const timelineRef = useRef(null);
@@ -19,54 +31,68 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToTimeline = () => {
-    timelineRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const refs = {
+    home: null,
+    bento: bentoRef,
+    marraine: marraineRef,
+    timeline: timelineRef,
+    gallery: galleryRef,
+    partners: partnersRef,
   };
 
-  const scrollToBento = () => {
-    bentoRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToMarraine = () => {
-    marraineRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToGallery = () => {
-    galleryRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToPartners = () => {
-    partnersRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id) => {
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      refs[id]?.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 250;
-      
-      const bento = bentoRef.current?.offsetTop || 0;
-      const marraine = marraineRef.current?.offsetTop || 0;
-      const gallery = galleryRef.current?.offsetTop || 0;
-      const timeline = timelineRef.current?.offsetTop || 0;
-      const partners = partnersRef.current?.offsetTop || 0;
+    const sections = [
+      { id: 'bento', el: bentoRef.current },
+      { id: 'marraine', el: marraineRef.current },
+      { id: 'timeline', el: timelineRef.current },
+      { id: 'gallery', el: galleryRef.current },
+      { id: 'partners', el: partnersRef.current },
+    ].filter((s) => s.el);
 
-      let current = 'home';
-      if (scrollPos >= partners) {
-        current = 'partners';
-      } else if (scrollPos >= gallery) {
-        current = 'gallery';
-      } else if (scrollPos >= timeline) {
-        current = 'timeline';
-      } else if (scrollPos >= marraine) {
-        current = 'marraine';
-      } else if (scrollPos >= bento) {
-        current = 'bento';
-      }
+    const visible = new Map();
 
-      setActiveSection((prev) => (prev !== current ? current : prev));
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = sections.find((s) => s.el === entry.target)?.id;
+          if (!id) return;
+          if (entry.isIntersecting) {
+            visible.set(id, entry.intersectionRatio);
+          } else {
+            visible.delete(id);
+          }
+        });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+        if (visible.size === 0) {
+          setActiveSection((prev) => (prev !== 'home' ? 'home' : prev));
+          return;
+        }
+
+        const order = ['bento', 'marraine', 'timeline', 'gallery', 'partners'];
+        let best = 'home';
+        let bestRatio = 0;
+        for (const id of order) {
+          const ratio = visible.get(id) ?? 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            best = id;
+          }
+        }
+        setActiveSection((prev) => (prev !== best ? best : prev));
+      },
+      { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    sections.forEach((s) => observer.observe(s.el));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -74,30 +100,23 @@ export default function App() {
       {/* 1. Immersive background light visual effects */}
       <BackgroundGlow />
 
-      {/* 2. Floating modern Glassmorphic Header Navbar */}
-      <header className="fixed top-4 inset-x-4 max-w-6xl mx-auto h-16 rounded-2xl glass-header border-slate-200/50 px-6 sm:px-8 flex items-center justify-between z-50 shadow-lg backdrop-blur-xl">
-        <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}>
+      {/* 2. Floating modern Header Navbar (Glassmorphic on desktop, solid on mobile) */}
+      <header className="fixed top-4 inset-x-4 max-w-6xl mx-auto h-16 rounded-2xl bg-white border border-slate-200/60 md:bg-white/75 md:backdrop-blur-xl px-6 sm:px-8 flex items-center justify-between z-50 shadow-md">
+        <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => { scrollTo('home'); setIsMobileMenuOpen(false); }}>
           <Code2 className="w-5 h-5 text-neonGreen animate-pulse" />
           <span className="font-extrabold tracking-wider text-sm sm:text-base uppercase bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-neonGreen">
             IT DAY <span className="text-neonGreen">2026</span>
           </span>
         </div>
-        
+
         {/* Navigation jump links */}
         <nav className="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest">
-          {[
-            { id: 'home', label: 'Accueil', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
-            { id: 'bento', label: 'Thématiques', action: scrollToBento, hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold' },
-            { id: 'marraine', label: 'Marraine', action: scrollToMarraine, hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
-            { id: 'timeline', label: 'Chronogramme', action: scrollToTimeline, hoverColor: 'hover:text-neonGreen', activeColor: 'text-neonGreen font-bold' },
-            { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple', activeColor: 'text-neonPurple font-bold' },
-            { id: 'partners', label: 'Partenaires', action: scrollToPartners, hoverColor: 'hover:text-neonBlue', activeColor: 'text-neonBlue font-bold' },
-          ].map((item) => {
+          {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
-                onClick={item.action}
+                onClick={() => scrollTo(item.id)}
                 className={`relative py-1.5 transition-colors duration-300 ${
                   isActive ? item.activeColor : 'text-slate-500 ' + item.hoverColor
                 }`}
@@ -106,13 +125,7 @@ export default function App() {
                 {isActive && (
                   <motion.div
                     layoutId="navbarActiveIndicator"
-                    className={`absolute bottom-0 left-0 right-0 h-[2px] rounded-full ${
-                      item.id === 'bento' || item.id === 'gallery'
-                        ? 'bg-neonPurple'
-                        : item.id === 'partners'
-                        ? 'bg-neonBlue'
-                        : 'bg-neonGreen'
-                    }`}
+                    className={`absolute bottom-0 left-0 right-0 h-[2px] rounded-full ${accentBg(item.accent)}`}
                   />
                 )}
               </button>
@@ -145,23 +158,16 @@ export default function App() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -15, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-x-4 z-40 lg:hidden rounded-2xl glass-header border-slate-200/50 p-6 shadow-xl flex flex-col gap-4 backdrop-blur-xl"
+            className="fixed inset-x-4 z-40 lg:hidden rounded-2xl bg-white border border-slate-200/60 p-6 shadow-xl flex flex-col gap-4"
             style={{ top: '82px' }}
           >
-            {[
-              { id: 'home', label: 'Accueil', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }), hoverColor: 'hover:text-neonGreen' },
-              { id: 'bento', label: 'Thématiques', action: scrollToBento, hoverColor: 'hover:text-neonPurple' },
-              { id: 'marraine', label: 'Marraine', action: scrollToMarraine, hoverColor: 'hover:text-neonGreen' },
-              { id: 'timeline', label: 'Chronogramme', action: scrollToTimeline, hoverColor: 'hover:text-neonGreen' },
-              { id: 'gallery', label: 'Souvenirs', action: scrollToGallery, hoverColor: 'hover:text-neonPurple' },
-              { id: 'partners', label: 'Partenaires', action: scrollToPartners, hoverColor: 'hover:text-neonBlue' },
-            ].map((item) => {
+            {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => {
-                    item.action();
+                    scrollTo(item.id);
                     setIsMobileMenuOpen(false);
                   }}
                   className={`w-full py-3 px-4 rounded-xl text-left text-sm font-semibold uppercase tracking-widest transition-all duration-200 flex items-center justify-between ${
@@ -172,18 +178,12 @@ export default function App() {
                 >
                   <span>{item.label}</span>
                   {isActive && (
-                    <span className={`w-1.5 h-1.5 rounded-full ${
-                      item.id === 'bento' || item.id === 'gallery'
-                        ? 'bg-neonPurple'
-                        : item.id === 'partners'
-                        ? 'bg-neonBlue'
-                        : 'bg-neonGreen'
-                    }`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${accentBg(item.accent)}`} />
                   )}
                 </button>
               );
             })}
-            
+
             {/* Mobile EPT Badge inside drawer */}
             <div className="flex sm:hidden items-center justify-center gap-2 mt-2 p-3 rounded-xl bg-slate-50/60 border border-slate-200/50 text-[10px] font-bold tracking-widest uppercase text-slate-600 select-none">
               <Globe className="w-4 h-4 text-neonBlue animate-spin [animation-duration:8s]" />
@@ -196,7 +196,7 @@ export default function App() {
       {/* 3. Main layout sections */}
       <main className="relative z-10">
         {/* Hero Section + Countdown */}
-        <Hero onExploreClick={scrollToTimeline} />
+        <Hero onExploreClick={() => scrollTo('timeline')} />
 
         {/* Separator line */}
         <div className="max-w-6xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -239,7 +239,7 @@ export default function App() {
       {/* 4. Elegant Clean Light Footer */}
       <footer className="relative border-t border-slate-200/65 bg-slate-50/70 z-20 py-16 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-          
+
           {/* Col 1: Branding info */}
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-4">
@@ -259,24 +259,15 @@ export default function App() {
               Accès Rapide
             </h4>
             <div className="flex flex-col gap-2.5 text-xs text-slate-500 font-semibold uppercase tracking-wider">
-              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Haut de page
-              </button>
-              <button onClick={scrollToBento} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Speakers & Thématiques
-              </button>
-              <button onClick={scrollToMarraine} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Marraine Systalink
-              </button>
-              <button onClick={scrollToTimeline} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Chronogramme
-              </button>
-              <button onClick={scrollToGallery} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Galerie Souvenirs
-              </button>
-              <button onClick={scrollToPartners} className="hover:text-slate-800 transition-colors duration-300 text-left">
-                Partenaires Officiels
-              </button>
+              {NAV_ITEMS.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className="hover:text-slate-800 transition-colors duration-300 text-left"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -288,9 +279,9 @@ export default function App() {
             <p className="text-slate-500 text-xs font-light mb-4">
               Des questions ou une proposition de partenariat ? Écrivez-nous directement.
             </p>
-            
-            <a 
-              href="mailto:pic@ept.sn" 
+
+            <a
+              href="mailto:pic@ept.sn"
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200/60 hover:border-neonGreen/30 transition-all duration-300 shadow-sm group animate-pulse-slow"
             >
               <Mail className="w-4 h-4 text-neonGreen" />

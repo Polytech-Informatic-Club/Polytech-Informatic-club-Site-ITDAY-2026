@@ -10,8 +10,8 @@ export default function Hero({ onExploreClick }) {
     setHasHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Configured target date for IT DAY 2026 (June 24, 2026 at 09h45)
-  const targetEventDate = "2026-06-24T09:45:00";
+  // Configured target date for IT DAY 2026 (June 24, 2026 at 09h00)
+  const targetEventDate = "2026-06-24T09:00:00";
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 px-4 z-10 max-w-6xl mx-auto">
@@ -99,7 +99,7 @@ export default function Hero({ onExploreClick }) {
           >
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/40 border border-slate-200/50 shadow-sm">
               <Calendar className="w-4 h-4 text-neonGreen" />
-              <span>Mercredi 24 Juin 2026 à 09h45</span>
+              <span>Mercredi 24 Juin 2026 à 09h00</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/40 border border-slate-200/50 shadow-sm">
               <MapPin className="w-4 h-4 text-neonBlue" />
@@ -139,7 +139,7 @@ export default function Hero({ onExploreClick }) {
               whileHover={hasHover ? { x: -48, y: -8, rotate: -2, scale: 1, zIndex: 40 } : {}}
               className="absolute w-[180px] h-[220px] sm:w-[200px] sm:h-[250px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/40 p-2 bg-white transition-shadow"
             >
-              <img src="/photos_site_selectionnees/hero_polaroid_derriere.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="lazy" />
+              <img src="/photos_site_selectionnees/hero_polaroid_derriere.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="eager" fetchpriority="high" width="200" height="195" alt="Souvenir IT DAY 2025" />
               <div className="flex items-center justify-center gap-1 mt-2 text-slate-500">
                 <Camera className="w-3 h-3 text-neonPurple" />
                 <span className="text-[9px] font-bold uppercase tracking-widest font-sans">PIC 2025</span>
@@ -152,7 +152,7 @@ export default function Hero({ onExploreClick }) {
               whileHover={hasHover ? { x: 48, y: 8, rotate: 1, scale: 1.05, zIndex: 40 } : {}}
               className="absolute w-[190px] h-[230px] sm:w-[210px] sm:h-[260px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/50 p-2 bg-white z-20 transition-shadow"
             >
-              <img src="/photos_site_selectionnees/hero_polaroid_devant.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="lazy" />
+              <img src="/photos_site_selectionnees/hero_polaroid_devant.jpg" className="w-full h-[78%] object-cover rounded-xl" loading="eager" fetchpriority="high" width="210" height="203" alt="Élites EPT - IT DAY 2025" />
               <div className="flex items-center justify-center gap-1 mt-2 text-slate-700">
                 <Camera className="w-3 h-3 text-neonGreen" />
                 <span className="text-[9px] font-bold uppercase tracking-widest font-sans">Élites EPT</span>
@@ -188,7 +188,7 @@ export default function Hero({ onExploreClick }) {
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 2.5, repeat: Infinity }}
         onClick={onExploreClick}
-        className="absolute bottom-4 cursor-pointer flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors duration-300 hidden lg:flex"
+        className="absolute bottom-4 cursor-pointer flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors duration-300 hidden lg:flex"
       >
         <span className="text-[9px] uppercase tracking-widest font-bold">Défiler</span>
         <ChevronDown className="w-3 h-3 text-neonGreen" />
