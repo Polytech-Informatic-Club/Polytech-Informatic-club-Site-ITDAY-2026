@@ -19,7 +19,7 @@ const PHOTOS_DATA = [
     src: "/photos_site_selectionnees/retour_en_images/2.jpg", 
     category: "Cérémonie",
     title: "Ouverture institutionnelle", 
-    story: "Série d'allocutions protocolaires de la Direction de l'école, du Bureau Des Eleves, du Chef de département GIT.",
+    story: "Série d'allocutions protocolaires de la Direction de l'école, du Bureau des Élèves, du Chef de département GIT.",
     shapeClass: "rounded-t-[120px] rounded-b-[25px]",
     rotateClass: "rotate-2 group-hover:rotate-0",
     borderColorClass: "border-sky-300",

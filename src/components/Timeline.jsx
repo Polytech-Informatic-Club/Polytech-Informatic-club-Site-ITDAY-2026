@@ -19,11 +19,11 @@ const EVENTS_DATA = [
     category: "accueil",
     icon: Users,
     image: "/photos_site_selectionnees/c2.jpg",
-    details: "Série d'allocutions protocolaires de la Direction de l'école, du Bureau Des Eleves, du Chef de département GIT.",
+    details: "Série d'allocutions protocolaires de la Direction de l'école, du Bureau des Élèves, du Chef de département GIT.",
     speakers: [
       { name: "Pr Mamadou WADE", role: "Directeur de l'École Polytechnique de Thiès (EPT)" },
       { name: "Pr Mamadou Diallo DIOUF", role: "Chef du département Génie Informatique & Télécommunications (GIT)" },
-      { name: "Murtada KAMARA", role: "Président du Bureau Des Élèves (BDE)" },
+      { name: "Murtada KAMARA", role: "Président du Bureau des Élèves (BDE)" },
       { name: "Algassimou BAH", role: "Président du Polytech Informatique Club (PIC)" }
     ]
   },
@@ -88,8 +88,8 @@ const EVENTS_DATA = [
         photo: "/photos_site_selectionnees/panelist_oumar_niang.jpg"
       },
       { 
-        name: "Pr Abdoul Aziz CISS", 
-        role: "Enseignant-chercheur EPT",
+        name: "Pr Abdou Aziz CISS", 
+        role: "Enseignant-chercheur, EPT",
         initials: "AC",
         photo: "/photos_site_selectionnees/panelist_abdou_aziz_ciss.png"
       },
