@@ -43,7 +43,7 @@ const PARTNERS = [
     logo: "/photos_site_selectionnees/partenaire_6_ai_hub_senegal.png",
     role: "Innovation & Incubation Technologique",
     desc: "Centre d'incubation stratégique dédié au développement et au déploiement de solutions d'intelligence artificielle adaptées aux enjeux socio-économiques locaux.",
-    website: "https://www.facebook.com/AIHubSenegal/"
+    website: "https://www.ai-hubsenegal.sn/hub"
   }
 ];
 
