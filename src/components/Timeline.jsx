@@ -108,7 +108,7 @@ const EVENTS_DATA = [
     ],
     moderator: {
       name: "Mme Fama SARR",
-      role: "Ingénieur développeur Full Stack chez CFOA, modératrice",
+      role: "Ingénieur développeur Full Stack chez CFOA",
       initials: "FS",
       photo: "/photos_site_selectionnees/panelist_fama_sarr.jpeg"
     }
