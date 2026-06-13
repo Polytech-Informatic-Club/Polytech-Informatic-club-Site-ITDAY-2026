@@ -97,9 +97,14 @@ export default function BentoGrid() {
                   <span className="text-[8px] uppercase tracking-wider font-bold text-slate-400 block">Président Directeur Général</span>
                   <span className="text-[10px] font-bold text-slate-700">Yonas PALOMINO</span>
                 </div>
-                <span className="text-xs text-neonBlue font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform duration-300">
+                <a
+                  href="https://systalink.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-neonBlue font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform duration-300 pointer-events-auto"
+                >
                   Découvrir &rarr;
-                </span>
+                </a>
               </div>
             </div>
 
