@@ -320,8 +320,8 @@ export default function Timeline() {
                                       <div className="w-1.5 h-1.5 rounded-full bg-neonGreen flex-shrink-0" />
                                     )}
                                     <div className="flex flex-col min-w-0">
-                                      <span className="text-xs font-bold text-slate-700 truncate leading-snug">{speaker.name}</span>
-                                      <span className="text-[10px] text-slate-400 font-light truncate leading-none mt-0.5">{speaker.role}</span>
+                                      <span className="text-xs font-bold text-slate-700 leading-snug">{speaker.name}</span>
+                                      <span className="text-[10px] text-slate-400 font-light leading-normal mt-0.5">{speaker.role}</span>
                                     </div>
                                   </div>
                                 ))}
@@ -355,8 +355,8 @@ export default function Timeline() {
                                     )}
                                   </div>
                                   <div className="flex flex-col min-w-0">
-                                    <span className="text-xs font-bold text-neonBlue truncate leading-snug">{event.moderator.name}</span>
-                                    <span className="text-[10px] text-slate-400 font-light truncate leading-none mt-0.5">{event.moderator.role}</span>
+                                    <span className="text-xs font-bold text-neonBlue leading-snug">{event.moderator.name}</span>
+                                    <span className="text-[10px] text-slate-400 font-light leading-normal mt-0.5">{event.moderator.role}</span>
                                   </div>
                                 </div>
                               ) : (
