@@ -262,7 +262,7 @@ export default function BentoGrid() {
                   Intervenants pressentis
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {["Mme Fama SARR", "Pr Oumar NIANG", "Pr Abdou Aziz CISS", "Pr Ndiaye DIA", "M. Mouhamet TALL"].map((pName, idx) => (
+                  {["Mme Fama SARR", "Pr Oumar NIANG", "Pr Abdoul Aziz CISS", "Pr Ndiaye DIA", "M. Mouhamet TALL"].map((pName, idx) => (
                     <span 
                       key={idx} 
                       className="text-[9px] bg-slate-50 border border-slate-200/60 px-2 py-0.5 rounded-md text-slate-600 font-bold"
