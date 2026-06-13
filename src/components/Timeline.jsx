@@ -19,7 +19,7 @@ const EVENTS_DATA = [
     category: "accueil",
     icon: Users,
     image: "/photos_site_selectionnees/c2.jpg",
-    details: "Série d'allocutions protocolaires de la Direction de l'école, du Chef de département GIT, et du bureau du Polytech Informatique Club.",
+    details: "Série d'allocutions protocolaires de la Direction de l'école, du Bureau Des Eleves, du Chef de département GIT.",
     speakers: [
       { name: "Pr Mamadou WADE", role: "Directeur de l'École Polytechnique de Thiès (EPT)" },
       { name: "Pr Mamadou Diallo DIOUF", role: "Chef du département Génie Informatique & Télécommunications (GIT)" },
@@ -108,7 +108,7 @@ const EVENTS_DATA = [
     ],
     moderator: {
       name: "Mme Fama SARR",
-      role: "Modératrice",
+      role: "Ingénieur développeur Full Stack chez CFOA, modératrice",
       initials: "FS",
       photo: "/photos_site_selectionnees/panelist_fama_sarr.jpeg"
     }
@@ -129,7 +129,7 @@ const EVENTS_DATA = [
     category: "accueil",
     icon: CheckCircle,
     image: "/photos_site_selectionnees/chronogramme_9_dejeuner.jpg",
-    details: "Banquet et moment de convivialité au restaurant SAES / Restaurant GIT, favorisant le réseautage et les échanges avec les entreprises partenaires."
+    details: "Banquet et moment de convivialité au restaurant SAES, favorisant le réseautage et les échanges avec les entreprises partenaires."
   }
 ];
 
