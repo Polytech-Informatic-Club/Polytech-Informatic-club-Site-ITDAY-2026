@@ -245,7 +245,7 @@ export default function App() {
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-5 h-5 text-neonGreen" />
               <span className="font-extrabold tracking-wider uppercase text-sm sm:text-base text-slate-800">
-                POLYTECH INFORMATIQUE CLUB
+                POLYTECH INFORMATIC CLUB
               </span>
             </div>
             <p className="text-slate-500 text-xs sm:text-sm font-light leading-relaxed max-w-sm">

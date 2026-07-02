@@ -24,7 +24,7 @@ const EVENTS_DATA = [
       { name: "Pr Mamadou WADE", role: "Directeur de l'École Polytechnique de Thiès (EPT)" },
       { name: "Pr Mamadou Diallo DIOUF", role: "Chef du département Génie Informatique & Télécommunications (GIT)" },
       { name: "Murtada KAMARA", role: "Président du Bureau des Élèves (BDE)" },
-      { name: "Algassimou BAH", role: "Président du Polytech Informatique Club (PIC)" }
+      { name: "Algassimou BAH", role: "Président du Polytech Informatic Club (PIC)" }
     ]
   },
   {

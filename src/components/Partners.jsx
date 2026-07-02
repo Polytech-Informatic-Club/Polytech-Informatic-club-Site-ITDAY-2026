@@ -68,7 +68,7 @@ export default function Partners() {
           Nos <span className="bg-clip-text text-transparent bg-gradient-to-r from-neonGreen via-neonBlue to-neonPurple">Partenaires</span> Officiels
         </h2>
         <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
-          Les institutions technologiques majeures qui soutiennent activement le Polytech Informatique Club pour faire de l'IT DAY 2026 un succès.
+          Les institutions technologiques majeures qui soutiennent activement le Polytech Informatic Club pour faire de l'IT DAY 2026 un succès.
         </p>
       </div>
 

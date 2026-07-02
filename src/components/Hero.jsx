@@ -10,8 +10,8 @@ export default function Hero({ onExploreClick }) {
     setHasHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
-  // Configured target date for IT DAY 2026 (June 24, 2026 at 09h00)
-  const targetEventDate = "2026-06-24T09:00:00";
+  // Configured target date for IT DAY 2026 (July 8, 2026 at 09h00)
+  const targetEventDate = "2026-07-08T09:00:00";
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 px-4 z-10 max-w-6xl mx-auto">
@@ -30,7 +30,7 @@ export default function Hero({ onExploreClick }) {
             className="flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-slate-200/60 text-xs font-semibold tracking-wide text-slate-600 mb-6 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5 text-neonGreen animate-pulse" />
-            <span>POLYTECH INFORMATIQUE CLUB (PIC) • EPT THIÈS</span>
+            <span>POLYTECH INFORMATIC CLUB (PIC) • EPT THIÈS</span>
           </motion.div>
 
           {/* Main EPT and PIC logo headers side-by-side */}
@@ -99,7 +99,7 @@ export default function Hero({ onExploreClick }) {
           >
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/40 border border-slate-200/50 shadow-sm">
               <Calendar className="w-4 h-4 text-neonGreen" />
-              <span>Mercredi 24 Juin 2026 à 09h00</span>
+              <span>Mercredi 8 Juillet 2026 à 09h00</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/40 border border-slate-200/50 shadow-sm">
               <MapPin className="w-4 h-4 text-neonBlue" />
